@@ -1,9 +1,12 @@
 {
-  "name": "server",
+  "name": "eCommerce",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon server/server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon server/server.js"
   },
   "keywords": [
     "eCommerce",
@@ -17,5 +20,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
