@@ -10,9 +10,9 @@
 
 const express = require("express");
 const router = express.Router();
-const { getProducts } = require("../controllers/productController"); // Import the getProducts controller
+const { getProducts, newProduct } = require("../controllers/productController"); // Import the getProducts controller
 
 // Define a GET route for products
 router.get("/products", getProducts);
-
+router.post("/product/new", newProduct);
 module.exports = router;

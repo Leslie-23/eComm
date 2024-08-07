@@ -1,0 +1,322 @@
+[
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "comment": "Great mouse, very responsive.",
+                "rating": 5
+            },
+            {
+                "user": "JaneSmith",
+                "comment": "Good value for the price.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "name": "Bluetooth Speaker",
+        "price": 49.99,
+        "description": "Portable Bluetooth speaker with rich sound and long battery life.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "public_id": "speaker1",
+                "url": "https://example.com/images/speaker1.jpg"
+            },
+            {
+                "public_id": "speaker2",
+                "url": "https://example.com/images/speaker2.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "SoundWave",
+        "stock": 75,
+        "numOfReviews": 312,
+        "reviews": [
+            {
+                "user": "AlexJones",
+                "comment": "Excellent sound quality and battery life.",
+                "rating": 5
+            },
+            {
+                "user": "MiaBrown",
+                "comment": "Compact and powerful.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "name": "Running Shoes",
+        "price": 89.99,
+        "description": "Lightweight running shoes with excellent grip and cushioning.",
+        "ratings": 4.2,
+        "images": [
+            {
+                "public_id": "shoes1",
+                "url": "https://example.com/images/shoes1.jpg"
+            },
+            {
+                "public_id": "shoes2",
+                "url": "https://example.com/images/shoes2.jpg"
+            }
+        ],
+        "category": "Sportswear",
+        "seller": "Sporty",
+        "stock": 200,
+        "numOfReviews": 150,
+        "reviews": [
+            {
+                "user": "ChrisEvans",
+                "comment": "Very comfortable and durable.",
+                "rating": 4
+            },
+            {
+                "user": "EmmaWatson",
+                "comment": "Good support for running.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "name": "Gaming Laptop",
+        "price": 1299.99,
+        "description": "High-performance gaming laptop with NVIDIA graphics.",
+        "ratings": 4.7,
+        "images": [
+            {
+                "public_id": "laptop1",
+                "url": "https://example.com/images/laptop1.jpg"
+            },
+            {
+                "public_id": "laptop2",
+                "url": "https://example.com/images/laptop2.jpg"
+            }
+        ],
+        "category": "Computers",
+        "seller": "Gamer's Haven",
+        "stock": 50,
+        "numOfReviews": 98,
+        "reviews": [
+            {
+                "user": "LukeSky",
+                "comment": "Handles all my games smoothly.",
+                "rating": 5
+            },
+            {
+                "user": "LeiaStar",
+                "comment": "Great performance and build quality.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "name": "Smartwatch",
+        "price": 199.99,
+        "description": "Feature-rich smartwatch with heart rate monitoring and GPS.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "public_id": "smartwatch1",
+                "url": "https://example.com/images/smartwatch1.jpg"
+            },
+            {
+                "public_id": "smartwatch2",
+                "url": "https://example.com/images/smartwatch2.jpg"
+            }
+        ],
+        "category": "Wearables",
+        "seller": "TimeTech",
+        "stock": 120,
+        "numOfReviews": 207,
+        "reviews": [
+            {
+                "user": "TaylorSwift",
+                "comment": "Love the fitness tracking features.",
+                "rating": 5
+            },
+            {
+                "user": "EdSheeran",
+                "comment": "Very stylish and functional.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "name": "Electric Kettle",
+        "price": 39.99,
+        "description": "Fast-boiling electric kettle with auto shut-off feature.",
+        "ratings": 4.4,
+        "images": [
+            {
+                "public_id": "kettle1",
+                "url": "https://example.com/images/kettle1.jpg"
+            },
+            {
+                "public_id": "kettle2",
+                "url": "https://example.com/images/kettle2.jpg"
+            }
+        ],
+        "category": "Kitchen Appliances",
+        "seller": "HomeEssentials",
+        "stock": 180,
+        "numOfReviews": 123,
+        "reviews": [
+            {
+                "user": "JamieOliver",
+                "comment": "Boils water quickly and safely.",
+                "rating": 4
+            },
+            {
+                "user": "GordonRamsay",
+                "comment": "Good quality for the price.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "name": "Yoga Mat",
+        "price": 24.99,
+        "description": "Eco-friendly yoga mat with non-slip surface.",
+        "ratings": 4.3,
+        "images": [
+            {
+                "public_id": "yogamat1",
+                "url": "https://example.com/images/yogamat1.jpg"
+            },
+            {
+                "public_id": "yogamat2",
+                "url": "https://example.com/images/yogamat2.jpg"
+            }
+        ],
+        "category": "Fitness",
+        "seller": "FitLife",
+        "stock": 300,
+        "numOfReviews": 89,
+        "reviews": [
+            {
+                "user": "SamYoga",
+                "comment": "Very comfortable and non-slip.",
+                "rating": 4
+            },
+            {
+                "user": "LisaYoga",
+                "comment": "Great for my yoga sessions.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "name": "Desk Lamp",
+        "price": 19.99,
+        "description": "Adjustable desk lamp with LED lighting.",
+        "ratings": 4.1,
+        "images": [
+            {
+                "public_id": "desklamp1",
+                "url": "https://example.com/images/desklamp1.jpg"
+            },
+            {
+                "public_id": "desklamp2",
+                "url": "https://example.com/images/desklamp2.jpg"
+            }
+        ],
+        "category": "Home Office",
+        "seller": "BrightLights",
+        "stock": 250,
+        "numOfReviews": 134,
+        "reviews": [
+            {
+                "user": "MichaelScott",
+                "comment": "Bright and adjustable, perfect for my desk.",
+                "rating": 4
+            },
+            {
+                "user": "PamBeesly",
+                "comment": "Good lighting for reading.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "name": "Digital Camera",
+        "price": 499.99,
+        "description": "High-resolution digital camera with multiple shooting modes.",
+        "ratings": 4.9,
+        "images": [
+            {
+                "public_id": "camera1",
+                "url": "https://example.com/images/camera1.jpg"
+            },
+            {
+                "public_id": "camera2",
+                "url": "https://example.com/images/camera2.jpg"
+            }
+        ],
+        "category": "Photography",
+        "seller": "CaptureMoments",
+        "stock": 60,
+        "numOfReviews": 56,
+        "reviews": [
+            {
+                "user": "AnselAdams",
+                "comment": "Amazing picture quality.",
+                "rating": 5
+            },
+            {
+                "user": "DorotheaLange",
+                "comment": "Great camera for professionals.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "name": "Coffee Maker",
+        "price": 79.99,
+        "description": "Automatic coffee maker with programmable settings.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "coffeemaker1",
+                "url": "https://example.com/images/coffeemaker1.jpg"
+            },
+            {
+                "public_id": "coffeemaker2",
+                "url": "https://example.com/images/coffeemaker2.jpg"
+            }
+        ],
+        "category": "Kitchen Appliances",
+        "seller": "BrewMaster",
+        "stock": 140,
+        "numOfReviews": 178,
+        "reviews": [
+            {
+                "user": "CoffeeLover",
+                "comment": "Makes great coffee every morning.",
+                "rating": 5
+            },
+            {
+                "user": "JavaAddict",
+                "comment": "Easy to use and clean.",
+                "rating": 4
+            }
+        ]
+    }
+]

@@ -5,4 +5,14 @@ const getProducts = (req, res, next) => {
   });
 };
 
-module.exports = { getProducts };
+// create new product api/v1/product/new
+const Product = require("../models/product");
+const newProduct = async (req, res, next) => {
+  const product = await Product.create(req.body);
+  res.status(201).json({
+    success: true,
+    product,
+  });
+};
+
+module.exports = { getProducts, newProduct };
