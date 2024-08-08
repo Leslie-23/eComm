@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const connectDatabse = () => {
+const connectDatabase = () => {
   mongoose
     .connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
@@ -9,4 +9,4 @@ const connectDatabse = () => {
     })
     .then((con) => console.log(`mongoDB connected to ${con.connection.host}`));
 };
-module.exports = connectDatabse;
+module.exports = connectDatabase;
