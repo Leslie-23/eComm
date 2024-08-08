@@ -1,3 +1,6 @@
+const Product = require("../models/product");
+const errorhandler = require("../utils/errorHnadler.js");
+
 // get all productss
 const getProducts = async (req, res, next) => {
   const products = await Product.find({});
@@ -10,7 +13,7 @@ const getProducts = async (req, res, next) => {
 };
 
 // create new product api/v1/product/new
-const Product = require("../models/product");
+
 const newProduct = async (req, res, next) => {
   const product = await Product.create(req.body);
   res.status(201).json({
@@ -20,7 +23,7 @@ const newProduct = async (req, res, next) => {
   // pagination, sort and filter are to be in this controller
 };
 
-//  get single product in the DB by '_id' => /api/v1/product/:id
+//  get single product in the DB by '_id' => /api/v1/admin/product/:id
 
 const getSingleProduct = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
@@ -36,7 +39,7 @@ const getSingleProduct = async (req, res, next) => {
   });
 };
 
-// update product in the DB by '_id' => /api/v1/product/:id
+// update product in the DB by '_id' => /api/v1/admin/product/:id
 const updateProduct = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
   if (!product) {
@@ -57,4 +60,29 @@ const updateProduct = async (req, res, next) => {
   });
 };
 
-module.exports = { getProducts, newProduct, getSingleProduct, updateProduct };
+// delete product in the DB by '_id' => /api/v1/admin/product/:id
+const deleteProduct = async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+  if (!product) {
+    res.status(404).json({
+      success: false,
+      message: "oops! Product not found",
+    });
+  }
+  // await product.remove(); // has been deprecated i.e the remove() method to place on the object itself
+  await Product.deleteOne({ _id: req.params.id }); // testing if the deleteOne works since we are deleting based on id
+
+  res.status(200).json({
+    success: true,
+    message: "Product deleted successfully",
+  });
+};
+
+// modeule exports.
+module.exports = {
+  getProducts,
+  newProduct,
+  getSingleProduct,
+  updateProduct,
+  deleteProduct,
+};
