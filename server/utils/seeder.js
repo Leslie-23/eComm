@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 const dotenv = require("dotenv");
-const connectDatabase = "../config/database.js";
+const connectDatabase = require("../config/database.js");
 // const { connect } = require("mongoose");
 const products = require("../data/product.json");
 
