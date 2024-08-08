@@ -11,6 +11,6 @@ connectDatabse();
 // PORT = process.env.PORT || 3000; {/**just in case the dev server is down fallback == 3000 */}
 app.listen(process.env.PORT, () => {
   console.log(
-    `Server started on ${process.env.PORT} in ${process.env.NODE_ENV} mode`
+    `Server started on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode`
   );
 });
