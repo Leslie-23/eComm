@@ -14,309 +14,602 @@
                 "url": "https://example.com/images/mouse2.jpg"
             }
         ],
-        "category": "Electronics",
+        "category": "electronics",
         "seller": "TechStore",
         "stock": 150,
         "numOfReviews": 234,
-        "reviews": [
-            {
-                "user": "JohnDoe",
-                "comment": "Great mouse, very responsive.",
-                "rating": 5
-            },
-            {
-                "user": "JaneSmith",
-                "comment": "Good value for the price.",
-                "rating": 4
-            }
-        ]
+        "reviews": []
     },
     {
-        "name": "Bluetooth Speaker",
-        "price": 49.99,
-        "description": "Portable Bluetooth speaker with rich sound and long battery life.",
-        "ratings": 4.8,
-        "images": [
-            {
-                "public_id": "speaker1",
-                "url": "https://example.com/images/speaker1.jpg"
-            },
-            {
-                "public_id": "speaker2",
-                "url": "https://example.com/images/speaker2.jpg"
-            }
-        ],
-        "category": "Electronics",
-        "seller": "SoundWave",
-        "stock": 75,
-        "numOfReviews": 312,
-        "reviews": [
-            {
-                "user": "AlexJones",
-                "comment": "Excellent sound quality and battery life.",
-                "rating": 5
-            },
-            {
-                "user": "MiaBrown",
-                "comment": "Compact and powerful.",
-                "rating": 5
-            }
-        ]
-    },
-    {
-        "name": "Running Shoes",
-        "price": 89.99,
-        "description": "Lightweight running shoes with excellent grip and cushioning.",
-        "ratings": 4.2,
-        "images": [
-            {
-                "public_id": "shoes1",
-                "url": "https://example.com/images/shoes1.jpg"
-            },
-            {
-                "public_id": "shoes2",
-                "url": "https://example.com/images/shoes2.jpg"
-            }
-        ],
-        "category": "Sportswear",
-        "seller": "Sporty",
-        "stock": 200,
-        "numOfReviews": 150,
-        "reviews": [
-            {
-                "user": "ChrisEvans",
-                "comment": "Very comfortable and durable.",
-                "rating": 4
-            },
-            {
-                "user": "EmmaWatson",
-                "comment": "Good support for running.",
-                "rating": 4
-            }
-        ]
-    },
-    {
-        "name": "Gaming Laptop",
-        "price": 1299.99,
-        "description": "High-performance gaming laptop with NVIDIA graphics.",
-        "ratings": 4.7,
-        "images": [
-            {
-                "public_id": "laptop1",
-                "url": "https://example.com/images/laptop1.jpg"
-            },
-            {
-                "public_id": "laptop2",
-                "url": "https://example.com/images/laptop2.jpg"
-            }
-        ],
-        "category": "Computers",
-        "seller": "Gamer's Haven",
-        "stock": 50,
-        "numOfReviews": 98,
-        "reviews": [
-            {
-                "user": "LukeSky",
-                "comment": "Handles all my games smoothly.",
-                "rating": 5
-            },
-            {
-                "user": "LeiaStar",
-                "comment": "Great performance and build quality.",
-                "rating": 5
-            }
-        ]
-    },
-    {
-        "name": "Smartwatch",
-        "price": 199.99,
-        "description": "Feature-rich smartwatch with heart rate monitoring and GPS.",
-        "ratings": 4.6,
-        "images": [
-            {
-                "public_id": "smartwatch1",
-                "url": "https://example.com/images/smartwatch1.jpg"
-            },
-            {
-                "public_id": "smartwatch2",
-                "url": "https://example.com/images/smartwatch2.jpg"
-            }
-        ],
-        "category": "Wearables",
-        "seller": "TimeTech",
-        "stock": 120,
-        "numOfReviews": 207,
-        "reviews": [
-            {
-                "user": "TaylorSwift",
-                "comment": "Love the fitness tracking features.",
-                "rating": 5
-            },
-            {
-                "user": "EdSheeran",
-                "comment": "Very stylish and functional.",
-                "rating": 4
-            }
-        ]
-    },
-    {
-        "name": "Electric Kettle",
-        "price": 39.99,
-        "description": "Fast-boiling electric kettle with auto shut-off feature.",
-        "ratings": 4.4,
-        "images": [
-            {
-                "public_id": "kettle1",
-                "url": "https://example.com/images/kettle1.jpg"
-            },
-            {
-                "public_id": "kettle2",
-                "url": "https://example.com/images/kettle2.jpg"
-            }
-        ],
-        "category": "Kitchen Appliances",
-        "seller": "HomeEssentials",
-        "stock": 180,
-        "numOfReviews": 123,
-        "reviews": [
-            {
-                "user": "JamieOliver",
-                "comment": "Boils water quickly and safely.",
-                "rating": 4
-            },
-            {
-                "user": "GordonRamsay",
-                "comment": "Good quality for the price.",
-                "rating": 4
-            }
-        ]
-    },
-    {
-        "name": "Yoga Mat",
-        "price": 24.99,
-        "description": "Eco-friendly yoga mat with non-slip surface.",
-        "ratings": 4.3,
-        "images": [
-            {
-                "public_id": "yogamat1",
-                "url": "https://example.com/images/yogamat1.jpg"
-            },
-            {
-                "public_id": "yogamat2",
-                "url": "https://example.com/images/yogamat2.jpg"
-            }
-        ],
-        "category": "Fitness",
-        "seller": "FitLife",
-        "stock": 300,
-        "numOfReviews": 89,
-        "reviews": [
-            {
-                "user": "SamYoga",
-                "comment": "Very comfortable and non-slip.",
-                "rating": 4
-            },
-            {
-                "user": "LisaYoga",
-                "comment": "Great for my yoga sessions.",
-                "rating": 4
-            }
-        ]
-    },
-    {
-        "name": "Desk Lamp",
-        "price": 19.99,
-        "description": "Adjustable desk lamp with LED lighting.",
-        "ratings": 4.1,
-        "images": [
-            {
-                "public_id": "desklamp1",
-                "url": "https://example.com/images/desklamp1.jpg"
-            },
-            {
-                "public_id": "desklamp2",
-                "url": "https://example.com/images/desklamp2.jpg"
-            }
-        ],
-        "category": "Home Office",
-        "seller": "BrightLights",
-        "stock": 250,
-        "numOfReviews": 134,
-        "reviews": [
-            {
-                "user": "MichaelScott",
-                "comment": "Bright and adjustable, perfect for my desk.",
-                "rating": 4
-            },
-            {
-                "user": "PamBeesly",
-                "comment": "Good lighting for reading.",
-                "rating": 4
-            }
-        ]
-    },
-    {
-        "name": "Digital Camera",
-        "price": 499.99,
-        "description": "High-resolution digital camera with multiple shooting modes.",
-        "ratings": 4.9,
-        "images": [
-            {
-                "public_id": "camera1",
-                "url": "https://example.com/images/camera1.jpg"
-            },
-            {
-                "public_id": "camera2",
-                "url": "https://example.com/images/camera2.jpg"
-            }
-        ],
-        "category": "Photography",
-        "seller": "CaptureMoments",
-        "stock": 60,
-        "numOfReviews": 56,
-        "reviews": [
-            {
-                "user": "AnselAdams",
-                "comment": "Amazing picture quality.",
-                "rating": 5
-            },
-            {
-                "user": "DorotheaLange",
-                "comment": "Great camera for professionals.",
-                "rating": 5
-            }
-        ]
-    },
-    {
-        "name": "Coffee Maker",
-        "price": 79.99,
-        "description": "Automatic coffee maker with programmable settings.",
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
         "ratings": 4.5,
         "images": [
             {
-                "public_id": "coffeemaker1",
-                "url": "https://example.com/images/coffeemaker1.jpg"
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
             },
             {
-                "public_id": "coffeemaker2",
-                "url": "https://example.com/images/coffeemaker2.jpg"
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
             }
         ],
-        "category": "Kitchen Appliances",
-        "seller": "BrewMaster",
-        "stock": 140,
-        "numOfReviews": 178,
-        "reviews": [
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
             {
-                "user": "CoffeeLover",
-                "comment": "Makes great coffee every morning.",
-                "rating": 5
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
             },
             {
-                "user": "JavaAddict",
-                "comment": "Easy to use and clean.",
-                "rating": 4
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
             }
-        ]
-    }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "description": "A sleek and ergonomic wireless mouse with adjustable DPI.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "mouse1",
+                "url": "https://example.com/images/mouse1.jpg"
+            },
+            {
+                "public_id": "mouse2",
+                "url": "https://example.com/images/mouse2.jpg"
+            }
+        ],
+        "category": "electronics",
+        "seller": "TechStore",
+        "stock": 150,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+            "name": "Gaming Keyboard",
+            "price": 49.99,
+            "description": "A mechanical keyboard with customizable RGB lighting.",
+            "ratings": 4.7,
+            "images": [
+                {
+                    "public_id": "keyboard1",
+                    "url": "https://example.com/images/keyboard1.jpg"
+                },
+                {
+                    "public_id": "keyboard2",
+                    "url": "https://example.com/images/keyboard2.jpg"
+                }
+            ],
+            "category": "electronics",
+            "seller": "Gamer's Paradise",
+            "stock": 200,
+            "numOfReviews": 432,
+            "reviews": []
+        },
+        {
+            "name": "Bluetooth Speaker",
+            "price": 59.99,
+            "description": "A portable speaker with deep bass and clear sound.",
+            "ratings": 4.6,
+            "images": [
+                {
+                    "public_id": "speaker1",
+                    "url": "https://example.com/images/speaker1.jpg"
+                },
+                {
+                    "public_id": "speaker2",
+                    "url": "https://example.com/images/speaker2.jpg"
+                }
+            ],
+            "category": "electronics",
+            "seller": "SoundHouse",
+            "stock": 120,
+            "numOfReviews": 298,
+            "reviews": []
+        },
+        {
+            "name": "Smartwatch",
+            "price": 199.99,
+            "description": "A stylish smartwatch with fitness tracking and notifications.",
+            "ratings": 4.3,
+            "images": [
+                {
+                    "public_id": "watch1",
+                    "url": "https://example.com/images/watch1.jpg"
+                },
+                {
+                    "public_id": "watch2",
+                    "url": "https://example.com/images/watch2.jpg"
+                }
+            ],
+            "category": "wearables",
+            "seller": "TechWear",
+            "stock": 85,
+            "numOfReviews": 520,
+            "reviews": []
+        },
+        {
+            "name": "Noise Cancelling Headphones",
+            "price": 129.99,
+            "description": "Over-ear headphones with active noise cancellation.",
+            "ratings": 4.8,
+            "images": [
+                {
+                    "public_id": "headphones1",
+                    "url": "https://example.com/images/headphones1.jpg"
+                },
+                {
+                    "public_id": "headphones2",
+                    "url": "https://example.com/images/headphones2.jpg"
+                }
+            ],
+            "category": "audio",
+            "seller": "MusicWorld",
+            "stock": 90,
+            "numOfReviews": 654,
+            "reviews": []
+        },
+        {
+            "name": "4K Monitor",
+            "price": 349.99,
+            "description": "A 27-inch 4K UHD monitor with vibrant colors and HDR.",
+            "ratings": 4.9,
+            "images": [
+                {
+                    "public_id": "monitor1",
+                    "url": "https://example.com/images/monitor1.jpg"
+                },
+                {
+                    "public_id": "monitor2",
+                    "url": "https://example.com/images/monitor2.jpg"
+                }
+            ],
+            "category": "computers",
+            "seller": "ScreenMasters",
+            "stock": 45,
+            "numOfReviews": 789,
+            "reviews": []
+        },
+        {
+            "name": "Wireless Charger",
+            "price": 19.99,
+            "description": "Fast wireless charging pad compatible with all devices.",
+            "ratings": 4.4,
+            "images": [
+                {
+                    "public_id": "charger1",
+                    "url": "https://example.com/images/charger1.jpg"
+                },
+                {
+                    "public_id": "charger2",
+                    "url": "https://example.com/images/charger2.jpg"
+                }
+            ],
+            "category": "accessories",
+            "seller": "ChargeUp",
+            "stock": 300,
+            "numOfReviews": 210,
+            "reviews": []
+        },
+        {
+            "name": "Laptop Stand",
+            "price": 34.99,
+            "description": "Ergonomic laptop stand with adjustable height and angle.",
+            "ratings": 4.7,
+            "images": [
+                {
+                    "public_id": "stand1",
+                    "url": "https://example.com/images/stand1.jpg"
+                },
+                {
+                    "public_id": "stand2",
+                    "url": "https://example.com/images/stand2.jpg"
+                }
+            ],
+            "category": "computers",
+            "seller": "ErgoDesk",
+            "stock": 150,
+            "numOfReviews": 356,
+            "reviews": []
+        },
+        {
+            "name": "Wireless Earbuds",
+            "price": 89.99,
+            "description": "Compact earbuds with superior sound quality and long battery life.",
+            "ratings": 4.2,
+            "images": [
+                {
+                    "public_id": "earbuds1",
+                    "url": "https://example.com/images/earbuds1.jpg"
+                },
+                {
+                    "public_id": "earbuds2",
+                    "url": "https://example.com/images/earbuds2.jpg"
+                }
+            ],
+            "category": "audio",
+            "seller": "AudioHub",
+            "stock": 230,
+            "numOfReviews": 478,
+            "reviews": []
+        },
+        {
+            "name": "Portable Power Bank",
+            "price": 39.99,
+            "description": "High-capacity power bank with fast charging and multiple ports.",
+            "ratings": 4.6,
+            "images": [
+                {
+                    "public_id": "powerbank1",
+                    "url": "https://example.com/images/powerbank1.jpg"
+                },
+                {
+                    "public_id": "powerbank2",
+                    "url": "https://example.com/images/powerbank2.jpg"
+                }
+            ],
+            "category": "accessories",
+            "seller": "PowerPlus",
+            "stock": 175,
+            "numOfReviews": 623,
+            "reviews": []
+        },
+        {
+            "name": "Smart Home Hub",
+            "price": 99.99,
+            "description": "Centralized control for all your smart home devices.",
+            "ratings": 4.7,
+            "images": [
+                {
+                    "public_id": "hub1",
+                    "url": "https://example.com/images/hub1.jpg"
+                },
+                {
+                    "public_id": "hub2",
+                    "url": "https://example.com/images/hub2.jpg"
+                }
+            ],
+            "category": "smart home",
+            "seller": "HomeSmart",
+            "stock": 60,
+            "numOfReviews": 512,
+            "reviews": []
+        }
+    
+    
 ]
