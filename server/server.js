@@ -9,8 +9,17 @@ dotenv.config({ path: "../server/config/config.env" });
 connectDatabse();
 
 // PORT = process.env.PORT || 3000; {/**just in case the dev server is down fallback == 3000 */}
-app.listen(process.env.PORT, () => {
+const server = app.listen(process.env.PORT, () => {
   console.log(
     `Server started on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode`
   );
+});
+
+// Handle Unhandled promise rejections
+process.on("unhandledRejection", (err) => {
+  console.log(`Error: ${err.message}`);
+  console.log(`Shutting down server due to unhandled promise rejection`);
+  server.close(() => {
+    process.exit(1);
+  });
 });
