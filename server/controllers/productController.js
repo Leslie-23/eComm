@@ -1,5 +1,5 @@
 const Product = require("../models/product");
-const errorhandler = require("../utils/errorHnadler.js");
+const errorhandler = require("../utils/errorHandler.js");
 
 // get all productss
 const getProducts = async (req, res, next) => {

@@ -1,5 +1,5 @@
 const express = require("express"); //importing express
-const errorMiddleware = require("../middlewares/error.js");
+const errorMiddleware = require("../server/middlewares/errors");
 
 const app = express(); //initializing express
 app.use(express.json()); //middleware to parse json
