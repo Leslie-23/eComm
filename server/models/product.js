@@ -52,6 +52,7 @@ const productSchema = new mongoose.Schema({
         "audio",
         "computers",
         "smart home",
+        "gadgets",
       ],
       message: "Please select a correct category for product",
     },
