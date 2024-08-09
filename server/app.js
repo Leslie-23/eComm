@@ -1,10 +1,8 @@
 const express = require("express"); //importing express
-const errorMiddleware = require("../server/middlewares/errors");
+const errorMiddleware = require("../server/middlewares/errors"); // import middleware
 
 const app = express(); //initializing express
 app.use(express.json()); //middleware to parse json
-
-// import middleware
 
 // import all routes
 const products = require("./routes/products");
