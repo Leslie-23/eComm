@@ -10,7 +10,7 @@ const {
 
 // get route for products
 router.get("/products", getProducts);
-router.get("/product/:id", getSingleProduct);
+router.get("/product/:id", getSingleProduct); // to get by _id
 
 // post route for products
 router.post("/admin/product/new", newProduct);
