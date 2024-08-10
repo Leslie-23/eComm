@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: __dirname + "/config/config.env" });
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -27,11 +32,13 @@ const userSchema = new mongoose.Schema({
   avatar: {
     public_id: {
       type: String,
-      required: [true],
+      //   required: [true],
+      default: null,
     },
     url: {
       type: String,
-      required: [true],
+      //   required: [true],
+      default: null,
     },
   },
   role: {
@@ -46,4 +53,20 @@ const userSchema = new mongoose.Schema({
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });
+
+// encrypting password for security before saving user
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  this.password = await bcrypt.hash(this.password, 10);
+});
+
+// return JWT token
+userSchema.methods.getJWTToken = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: "7d", //process.env.JWT_EXPIRE, // to be changed to an .env variable
+  });
+};
+
 module.exports = mongoose.model("User", userSchema);
