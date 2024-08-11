@@ -1,5 +1,8 @@
-//  create and send token and save in the cookie
+// jwtToken.js
 
+//  create and send token and save in the cookie
+const dotenv = require("dotenv");
+dotenv.config({ path: __dirname + "/config/config.env" });
 const sendToken = (user, statusCode, res) => {
   // create JWT token
   const token = user.getJWTToken();

@@ -7,7 +7,7 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controllers/productController"); // Import the getProducts controller
-const { isAuthenticatedUser } = require("../middlewares/auth");
+const { isAuthenticatedUser } = require("../middlewares/auth.js");
 // get route for products
 router.get("/products", isAuthenticatedUser, getProducts);
 router.get("/product/:id", getSingleProduct); // to get by _id
