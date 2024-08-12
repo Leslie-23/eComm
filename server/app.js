@@ -1,5 +1,4 @@
 // app.js
-
 const express = require("express"); //importing express
 const app = express(); //initializing express
 
@@ -10,7 +9,7 @@ app.use(express.json()); //middleware to parse json
 app.use(cookieParser); //initializing the cookiee-parser so as to extract the value from the sever.
 
 // importing all routes
-const products = require("./routes/products");
+const products = require("./routes/products.js");
 const auth = require("./routes/auth.js");
 
 app.use("/api/v1", products);

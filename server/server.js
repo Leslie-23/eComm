@@ -12,6 +12,11 @@ process.on("uncaughtException", (err) => {
 // setting up config file
 dotenv.config({ path: "../server/config/config.env" });
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "The api on the sever side works",
+  });
+});
 // connecting to database
 connectDatabse();
 
