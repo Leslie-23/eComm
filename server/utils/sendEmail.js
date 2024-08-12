@@ -11,6 +11,18 @@ const sendEmail = async (options) => {
       pass: process.env.SMTP_PASSWORD,
     },
   });
+  const message = {
+    from: `${process.env.SMTP_FROM_USER} <${process.env.SMTP_FROM_EMAIL}>`,
+    to: options.email,
+    subject: options.subject,
+    text: options.message,
+  };
+
+  await transporter.sendMail(message);
+
+  const info = await transporter.sendMail(message);
+  console.log(`Message sent: ${info.messageId}`);
+  console.log(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
 };
 
 module.exports = sendEmail;
