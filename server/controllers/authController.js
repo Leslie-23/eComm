@@ -15,12 +15,12 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
     password,
     avatar: { public_id: "", url: "" },
   });
-
-  const token = user.getJWTToken();
-  res.status(201).json({
-    success: true,
-    token,
-  });
+  sendToken(user, 200, res);
+  // const token = user.getJWTToken();
+  // res.status(201).json({
+  //   success: true,
+  //   token,
+  // });
 });
 
 // login user => /api/vi/login
@@ -33,18 +33,18 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("Please provide email and password", 400));
   }
 
-  // check if user exists and password is correct
+  // check if user exists and password is correct in the  DB2
   const user = await User.findOne({ email }).select("+password");
 
   if (!user || !(await user.matchPassword(password))) {
     return next(new ErrorHandler("Invalid email or password", 401));
   }
-  // sendToken(user, 200, res);
+  sendToken(user, 200, res);
 
   //  create and send JWT token
-  const token = user.getJWTToken();
-  res.status(200).json({
-    success: true,
-    token,
-  });
+  // const token = user.getJWTToken();
+  // res.status(200).json({
+  //   success: true,
+  //   token,
+  // });
 });
