@@ -4,7 +4,7 @@ const User = require("../models/user.js");
 const catchAsyncError = require("../middlewares/catchAsyncError.js");
 const ErrorHandler = require("../utils/errorHandler.js");
 const sendToken = require("../utils/jwtToken.js");
-// register user => /api/vi/register
+// register user => /api/v1/register
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body; // pulling the name, email and password from the req.body
@@ -23,7 +23,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   // });
 });
 
-// login user => /api/vi/login
+// login user => /api/v1/login
 
 exports.loginUser = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
@@ -47,4 +47,16 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   //   success: true,
   //   token,
   // });
+});
+
+// logout user => /api/v1/
+exports.logoutUser = catchAsyncError(async (req, res, next) => {
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    success: true,
+    message: "Logged out",
+  });
 });
