@@ -10,9 +10,11 @@ const {
   getUserProfile,
   updatePassword,
   updateUserProfile, // get user profile
+  allUsers,
+  getUserDetails,
 } = require("../controllers/authController");
 
-const { isAuthenticatedUser } = require("../middlewares/auth");
+const { isAuthenticatedUser, authorizedRoles } = require("../middlewares/auth");
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
@@ -20,6 +22,18 @@ router.post("/password/forgot", forgotPassword);
 
 router.get("/logout", logoutUser);
 router.get("/me", isAuthenticatedUser, getUserProfile);
+router.get(
+  "/admin/users",
+  isAuthenticatedUser,
+  authorizedRoles("admin"),
+  allUsers
+);
+router.get(
+  "/admin/user/:id",
+  isAuthenticatedUser,
+  authorizedRoles("admin"),
+  getUserDetails
+);
 
 router.put("/password/reset/:token", resetPassword);
 router.put("/password/update", isAuthenticatedUser, updatePassword);

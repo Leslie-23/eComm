@@ -1,6 +1,7 @@
 // also the userController file
 
 const User = require("../models/user.js");
+const mongoose = require("mongoose");
 const catchAsyncError = require("../middlewares/catchAsyncError.js");
 const ErrorHandler = require("../utils/errorHandler.js");
 const sendToken = require("../utils/jwtToken.js");
@@ -167,5 +168,38 @@ exports.logoutUser = catchAsyncError(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: "Logged out",
+  });
+});
+
+// Admin routes
+
+// get all users => /api/v1/admin/users
+exports.allUsers = catchAsyncError(async (req, res, next) => {
+  const users = await User.find().select("-password");
+  res.status(200).json({
+    success: true,
+    users,
+  });
+});
+
+// get user details => /api/v1/admin/user/:id
+exports.getUserDetails = catchAsyncError(async (req, res, next) => {
+  // checking if the mongoose ID is valid in count and length i guess;
+  const isValidObjectId = mongoose.Types.ObjectId.isValid(req.params.id);
+  if (!isValidObjectId) {
+    return next(new ErrorHandler(`Invalid ID format: ${req.params.id}`, 400));
+  }
+
+  const user = await User.findById(req.params.id).select("-password");
+  // console.log(`${req.params.id}`); // validating the value manually
+  if (!user) {
+    return next(
+      new ErrorHandler(`User not found with _id ${req.params.id} `, 404)
+      // console.log(`${req.params.id}`) // testing the ${req.params.id}
+    );
+  }
+  res.status(200).json({
+    success: true,
+    user,
   });
 });
