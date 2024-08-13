@@ -126,6 +126,22 @@ exports.getUserProfile = catchAsyncError(async (req, res, next) => {
   });
 });
 
+// Update / change password => api/v1/password/update
+exports.updatePassword = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select("+password");
+
+  // check old user password
+  if (!(await user.matchPassword(req.body.currentPassword))) {
+    return next(new ErrorHandler("Current password is incorrect", 401));
+  }
+
+  // update password
+  user.password = req.body.newPassword;
+  await user.save();
+
+  sendToken(user, 200, res);
+});
+
 // logout user => /api/v1/logout
 exports.logoutUser = catchAsyncError(async (req, res, next) => {
   res.cookie("token", null, {

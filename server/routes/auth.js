@@ -7,7 +7,8 @@ const {
   logoutUser,
   forgotPassword, // password reset endpoint
   resetPassword, // reset password
-  getUserProfile, // get user profile
+  getUserProfile,
+  updatePassword, // get user profile
 } = require("../controllers/authController");
 
 const { isAuthenticatedUser } = require("../middlewares/auth");
@@ -20,5 +21,6 @@ router.get("/logout", logoutUser);
 router.get("/me", isAuthenticatedUser, getUserProfile);
 
 router.put("/password/reset/:token", resetPassword);
+router.put("/password/update", isAuthenticatedUser, updatePassword);
 
 module.exports = router;
