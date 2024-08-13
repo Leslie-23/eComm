@@ -109,10 +109,29 @@ exports.updateOrder = catchAsyncError(async (req, res, next) => {
 async function updateProduct(id, quantity) {
   const product = await Product.findById(id);
   if (!product) {
-    console.error(`Product not found with id: ${id}`);
-    // return;
-    throw new ErrorHandler("Product not found", 404);
+    console.error(`Product not found with id: ${id}`); // test log for debugging
+    // return; //unreachable return code for debugging
+    throw new ErrorHandler("Product not found", 404); // error handler to respond to unreachable code
   }
   product.quantity = product.quantity - quantity;
   await product.save({ validateBeforeSave: false });
 }
+
+// delete order => api/v1/admin/order/:id
+exports.deleteOrder = catchAsyncError(async (req, res, next) => {
+  const order = await Order.findById(req.params.id);
+
+  if (!order) {
+    return next(
+      new ErrorHandler(`Order not found with id ${req.params.id}`, 404)
+    );
+  }
+  await order.deleteOne({
+    _id: req.params.id,
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "Deleted successfully",
+  });
+});

@@ -7,6 +7,7 @@ const {
   myOrders,
   allOrders,
   updateOrder,
+  deleteOrder,
 } = require("../controllers/orderController");
 const { isAuthenticatedUser } = require("../middlewares/auth");
 const { authorizedRoles } = require("../middlewares/auth");
@@ -45,6 +46,14 @@ router.put(
   isAuthenticatedUser,
   authorizedRoles("admin"),
   updateOrder
+);
+
+// delete order
+router.delete(
+  "/admin/order/:id",
+  isAuthenticatedUser,
+  authorizedRoles("admin"),
+  deleteOrder
 );
 
 module.exports = router;
