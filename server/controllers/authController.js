@@ -203,3 +203,40 @@ exports.getUserDetails = catchAsyncError(async (req, res, next) => {
     user,
   });
 });
+
+// update user profile => api/v1/admin/user/:id
+exports.updateUser = catchAsyncError(async (req, res, next) => {
+  const newUserData = {
+    name: req.body.name,
+    email: req.body.email,
+    role: req.body.role,
+  };
+  const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false,
+  });
+  res.status(200).json({
+    success: true,
+    user, // or user: user
+  });
+});
+
+// delete user => api/v1/admin/user/:id
+exports.deleteUser = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    return next(
+      new ErrorHandler(`User not found with _id ${req.params.id} `, 404)
+    );
+  }
+
+  // remove avatar from cloudinary : TODO
+
+  // remove user from DB
+  // await user.remove(); // <--- deprectaed method
+  await user.deleteOne({ _id: req.params.id });
+  res.status(200).json({
+    success: true,
+  });
+});
