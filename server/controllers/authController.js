@@ -142,6 +142,22 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
+// update user profile => api/v1/me/update
+exports.updateUserProfile = catchAsyncError(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(req.user.id, req.body, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false,
+  });
+
+  // update avatar : TODO
+
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
 // logout user => /api/v1/logout
 exports.logoutUser = catchAsyncError(async (req, res, next) => {
   res.cookie("token", null, {

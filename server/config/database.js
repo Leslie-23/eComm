@@ -10,8 +10,8 @@ const connectDatabase = () => {
 
   mongoose
     .connect(process.env.MONGO_URI, {
-      useNewUrlParser: true, //deprecated
-      useUnifiedTopology: true, //deprecated
+      // useNewUrlParser: true, //deprecated
+      // useUnifiedTopology: true, //deprecated
       //bufferCommands: false, // Disable mongoose buffering (deprecated)
       // bufferTimeoutMS: 30000, // Optional, increase timeout duration no longer supported (you guessed it deprecated)
     })
