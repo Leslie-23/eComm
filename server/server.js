@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const connectDatabse = require("./config/database");
 
 process.on("uncaughtException", (err) => {
-  console.log(`Error: ${err.message}`);
+  console.log(`Error: ${err.message} \n ${err.stack}`);
   console.log(`Shutting down server due to uncaught Exception`);
   process.exit(1);
 });
@@ -25,7 +25,7 @@ const server = app.listen(process.env.PORT, () => {
 
 // Handle Unhandled promise rejections
 process.on("unhandledRejection", (err) => {
-  console.log(`Error: ${err.message}`);
+  console.log(`Error: ${err.message} \n ${err.stack}`);
   console.log(`Shutting down server due to unhandled promise rejection`); //to test mess up the MONGO_URI in the 'config.env. file
   server.close(() => {
     process.exit(1);

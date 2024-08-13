@@ -18,10 +18,12 @@ const {
 
 const { isAuthenticatedUser, authorizedRoles } = require("../middlewares/auth");
 
+// post requests
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.post("/password/forgot", forgotPassword);
 
+// get requests
 router.get("/logout", logoutUser);
 router.get("/me", isAuthenticatedUser, getUserProfile);
 router.get(
@@ -37,11 +39,13 @@ router.get(
   getUserDetails
 );
 
+// put requests
 router.put("/password/reset/:token", resetPassword);
 router.put("/password/update", isAuthenticatedUser, updatePassword);
 router.put("/me/update", isAuthenticatedUser, updateUserProfile);
 router.put("/admin/user/:id", isAuthenticatedUser, updateUser);
 
+// delete requests
 router.delete("/admin/user/:id", isAuthenticatedUser, deleteUser);
 
 module.exports = router;
