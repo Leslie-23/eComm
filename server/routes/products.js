@@ -6,6 +6,7 @@ const {
   getSingleProduct,
   updateProduct,
   deleteProduct,
+  createReview,
 } = require("../controllers/productController"); // Import the getProducts controller
 const {
   isAuthenticatedUser,
@@ -39,6 +40,8 @@ router.put(
   authorizedRoles("admin"),
   updateProduct
 );
+
+router.put("/reviews", isAuthenticatedUser, createReview);
 
 // delete route for products (remove)
 router.delete(
