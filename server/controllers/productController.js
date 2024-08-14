@@ -94,6 +94,13 @@ const createReview = catchAsyncError(async (req, res, next) => {
   // req.body.user = req.user._id;
   const { rating, comment, productId } = req.body;
 
+  // Check if all required fields are present
+  if (!rating || !comment || !productId) {
+    return next(
+      new errorhandler("Please provide rating, comment, and productId", 400)
+    );
+  }
+
   const review = {
     user: req.user._id,
     name: req.user.name,
@@ -102,6 +109,14 @@ const createReview = catchAsyncError(async (req, res, next) => {
   };
 
   const product = await Product.findById(productId);
+
+  // Handle case where product is not found
+  if (!product) {
+    return next(
+      new errorhandler(`Product not found with id ${productId}`, 404)
+    );
+  }
+
   const isReviewed = product.reviews.find(
     (rev) => rev.user.toString() === req.user._id.toString()
   );
@@ -126,6 +141,44 @@ const createReview = catchAsyncError(async (req, res, next) => {
   });
 });
 
+// get all reviews of a product => api/v1/reviews
+const getAllReviews = catchAsyncError(async (req, res, next) => {
+  const product = await Product.findById(req.query.id);
+  res.status(200).json({
+    success: true,
+    reviews: product.reviews,
+  });
+});
+
+// delete review of a product => api/v1/reviews
+const deleteReview = catchAsyncError(async (req, res, next) => {
+  const product = await Product.findById(req.query.productId);
+  const reviews = product.reviews.filter(
+    (rev) => rev._id.toString() !== req.query.id.toString()
+  );
+  const numOfReviews = reviews.length;
+  const ratings =
+    product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+    reviews.length;
+  await Product.findByIdAndUpdate(
+    req.query.productId,
+    {
+      reviews,
+      ratings,
+      numOfReviews,
+    },
+    {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    }
+  );
+  res.status(200).json({
+    success: true,
+    message: "Review deleted successfully",
+  });
+});
+
 // modeule exports.
 module.exports = {
   getProducts,
@@ -134,4 +187,6 @@ module.exports = {
   updateProduct,
   deleteProduct,
   createReview,
+  getAllReviews,
+  deleteReview,
 };

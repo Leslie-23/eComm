@@ -7,6 +7,8 @@ const {
   updateProduct,
   deleteProduct,
   createReview,
+  getAllReviews,
+  deleteReview,
 } = require("../controllers/productController"); // Import the getProducts controller
 const {
   isAuthenticatedUser,
@@ -14,16 +16,13 @@ const {
 } = require("../middlewares/auth.js");
 
 // get route for products
-router.get(
-  "/products",
-  isAuthenticatedUser,
-
-  getProducts
-);
+router.get("/products", isAuthenticatedUser, getProducts);
 router.get("/product/:id", getSingleProduct); // to get by _id
-router.get("/test", (req, res) => {
-  res.status(200).json({ message: "Test route works!" });
-});
+router.get("/reviews", getAllReviews);
+
+// router.get("/test", (req, res) => {
+//   res.status(200).json({ message: "Test route works!" });
+// });
 
 // post route for products
 router.post(
@@ -50,5 +49,6 @@ router.delete(
   authorizedRoles("admin"),
   deleteProduct
 );
+router.delete("/reviews", isAuthenticatedUser, deleteReview);
 
 module.exports = router;
