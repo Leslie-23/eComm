@@ -1,7 +1,8 @@
 git add .
-git commit -m "second push"
+git commit -m "commit msg"
 
 
 git remote add origin https://github.com/Leslie-23/eComm.git
+
 git branch -M main
 git push origin main
