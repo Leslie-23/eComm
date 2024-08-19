@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <h1>LESLIE PAUL</h1>*/}
         <Header />
         <div className="container container-fluid">
           <Routes>
