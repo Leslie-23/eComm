@@ -6,6 +6,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  /* background: #000; */
 }
 
 /* Scroll Bar */
@@ -613,4 +614,9 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
+}
+/* CSS */
+.rating-outer {
+  display: flex;
+  font-size: 1.5rem;
 }
