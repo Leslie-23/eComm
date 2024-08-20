@@ -7,6 +7,7 @@ import {
 } from "../contants/productsConstants";
 
 const API_URL = `http://localhost:4000`;
+
 export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
@@ -17,9 +18,12 @@ export const getProducts = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+    const errorMessage = error.response
+      ? error.response.data.message
+      : error.message;
     dispatch({
       type: ALL_PRODUCTS_FAIL,
-      payload: error.response.data.message,
+      payload: errorMessage,
     });
   }
 };

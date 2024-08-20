@@ -3,8 +3,7 @@ const dotenv = require("dotenv");
 const connectDatabse = require("./config/database");
 const cors = require("cors");
 
-app.use(cors({ origin: "http://localhost:3000" }));
-app.use(cors());
+// app.use(cors());
 
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message} \n ${err.stack}`);
@@ -19,6 +18,14 @@ dotenv.config({ path: "../server/config/config.env" });
 
 // connecting to database
 connectDatabse();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Allow cookies to be sent across domains if necessary
+  })
+);
 
 // PORT = process.env.PORT || 3000; {/**just in case the dev server is down fallback == 3000 */}
 const server = app.listen(process.env.PORT, () => {

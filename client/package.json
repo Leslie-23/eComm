@@ -13,6 +13,7 @@
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
     "axios": "^1.7.4",
+    "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
