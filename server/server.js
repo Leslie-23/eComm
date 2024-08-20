@@ -3,7 +3,8 @@ const dotenv = require("dotenv");
 const connectDatabse = require("./config/database");
 const cors = require("cors");
 
-app.use(cors({ origin: "http://localhost:4000" }));
+app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message} \n ${err.stack}`);

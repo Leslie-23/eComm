@@ -16,7 +16,7 @@ const {
 } = require("../middlewares/auth.js");
 
 // get route for products
-router.get("/products", isAuthenticatedUser, getProducts);
+router.get("/products", getProducts);
 router.get("/product/:id", getSingleProduct); // to get by _id
 router.get("/reviews", getAllReviews);
 
