@@ -1,6 +1,13 @@
-import React from "react";
+import { React, useEffect } from "react";
 import MetaData from "./layouts/metadata";
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from "../actions/productsActions";
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <>
       <MetaData title={`Buy Best Products online `} />
