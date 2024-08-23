@@ -21,6 +21,8 @@ module.exports = (err, req, res, next) => {
     if (err.name === "CastError") {
       const message = `!Oops. Resource not found. Invalid: ${err.path}`;
       error = new ErrorHandler(message, 400);
+      console.log(`${err.path}`);
+      console.log(`${err.stack}`); //to track the err
     }
 
     // Handling mongoose validation error

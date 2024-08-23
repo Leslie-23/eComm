@@ -2,22 +2,31 @@ const Product = require("../models/product");
 const errorhandler = require("../utils/errorHandler.js");
 const catchAsyncError = require("../middlewares/catchAsyncError");
 const APIFeatures = require("../utils/apiFeatures.js");
+const ErrorHandler = require("../utils/errorHandler.js");
 
 // get all productss
 const getProducts = catchAsyncError(async (req, res, next) => {
+  // return next(new errorhandler("my err", 400)); // error testing
   const resPerPage = 10;
-  const productCount = await Product.countDocuments(); // to be used in the frntend
+  const productsCount = await Product.countDocuments(); // to be used in the frntend
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
     .search()
-    .filter()
-    .pagination(resPerPage);
-  const products = await apiFeatures.query;
+    .filter();
+
+  let products = await apiFeatures.query;
+  let filteredProductsCount = products.length;
+
+  apiFeatures.pagination(resPerPage);
+  products = await apiFeatures.query.clone(); // Cloning the query so the mongoose ORM can be re-initialised
 
   res.status(200).json({
     success: true,
     count: products.length,
+    productsCount,
     products,
+    resPerPage,
+    filteredProductsCount,
   });
 });
 
