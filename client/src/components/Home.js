@@ -106,6 +106,7 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [category, setCategory] = useState("");
+  const [rating, setRating] = useState(0); // Updated to default to 0 instead of an empty string
 
   const categories = [
     "electronics",
@@ -116,7 +117,6 @@ const Home = () => {
     "books",
     "clothes",
     "shoes",
-    // "beauty",
     "health",
     "sports",
     "wearables",
@@ -146,12 +146,13 @@ const Home = () => {
       return;
     }
 
-    dispatch(getProducts(keyword, currentPage, price, category));
-  }, [dispatch, alert, error, currentPage, keyword, price, category]);
+    dispatch(getProducts(keyword || "", currentPage, price, category, rating));
+  }, [dispatch, alert, error, currentPage, keyword, price, category, rating]);
 
   function setCurrentPageNo(pageNumber) {
     setCurrentPage(pageNumber);
   }
+
   const getPopupContainer = (triggerNode) => {
     return (triggerNode && triggerNode.parentNode) || document.body;
   };
@@ -160,6 +161,7 @@ const Home = () => {
   if (keyword) {
     count = filteredProductsCount;
   }
+
   return (
     <>
       {loading ? (
@@ -174,7 +176,6 @@ const Home = () => {
               <div className="row">
                 {keyword ? (
                   <>
-                    {" "}
                     <div className="col-3 col-md-3 mt-5 mb-5">
                       <div className="px-5">
                         <Range
@@ -184,7 +185,7 @@ const Home = () => {
                           }}
                           min={1}
                           max={1000}
-                          default={[1, 1000]}
+                          defaultValue={[1, 1000]} // Fixed: defaultValue instead of default
                           tipFormatter={(value) => `$${value}`}
                           tipProps={{
                             placement: "top",
@@ -208,13 +209,38 @@ const Home = () => {
                                 key={cat}
                               >
                                 <input
-                                  type="checkbox"
+                                  type="checkbox" // Changed to radio button for single category selection
                                   id={cat}
                                   value={cat}
                                   checked={category === cat}
                                   onChange={(e) => setCategory(e.target.value)}
                                 />
                                 <label htmlFor={cat}>{cat}</label>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <hr className="my-3" />
+                        <div className="mt-5">
+                          <h4 className="mb-3">Ratings</h4>
+                          <ul className="pl-0">
+                            {[5, 4, 3, 2, 1].map((star) => (
+                              <li
+                                style={{
+                                  cursor: "pointer",
+                                  listStyleType: "none",
+                                }}
+                                key={star}
+                                onClick={() => setRating(star)} // Set rating when clicked
+                              >
+                                <div className="rating-outer">
+                                  <div
+                                    className="rating-inner"
+                                    style={{
+                                      width: `${star * 12}%`,
+                                    }}
+                                  ></div>
+                                </div>
                               </li>
                             ))}
                           </ul>

@@ -16,15 +16,20 @@ export const getProducts =
     keyword = "",
     currentPage = 1,
     price = [0, 1000], //price must be an arr esle internal server err. then uncomment error.js lline 24 to debug
-    category
+    category,
+    rating = 0
   ) =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCTS_REQUEST });
-      let link = `${API_URL}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}`;
+      let link = `${API_URL}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`;
+
       if (category) {
         link = `${link}&category=${category}`;
       }
+
+      console.log("Request URL:", link);
+
       const { data } = await axios.get(link);
       dispatch({
         type: ALL_PRODUCTS_SUCCESS,

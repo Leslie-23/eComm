@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client"; // React 18+ method
 import App from "./App";
+import "./App.css";
 import { Provider } from "react-redux";
 import Store from "./Store";
 import { positions, transitions, Provider as AlertProvider } from "react-alert";

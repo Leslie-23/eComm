@@ -11,6 +11,7 @@ module.exports = (err, req, res, next) => {
       errMessage: err.message,
       stack: err.stack,
     });
+    console.log(err.stack);
   }
 
   if (process.env.NODE_ENV === "PRODUCTION") {

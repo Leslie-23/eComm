@@ -7,7 +7,7 @@ const ErrorHandler = require("../utils/errorHandler.js");
 // get all productss
 const getProducts = catchAsyncError(async (req, res, next) => {
   // return next(new errorhandler("my err", 400)); // error testing
-  const resPerPage = 10;
+  const resPerPage = 12;
   const productsCount = await Product.countDocuments(); // to be used in the frntend
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
