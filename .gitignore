@@ -69,6 +69,8 @@ out/
 package-lock.json
 yarn.lock
 
+config/config.env
+
 # Miscellaneous
 coverage/
 *.bak

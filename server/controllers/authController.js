@@ -7,24 +7,159 @@ const ErrorHandler = require("../utils/errorHandler.js");
 const sendToken = require("../utils/jwtToken.js");
 const sendEmail = require("../utils/sendEmail.js");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary");
+const fileUpload = require("express-fileupload");
+
 // register user => /api/v1/register
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-  const { name, email, password } = req.body; // pulling the name, email and password from the req.body
+  console.log(`req.body`, req.body);
+  console.log(`req.body.avatar`, req.body.avatar);
 
-  const user = await User.create({
-    name,
-    email,
-    password,
-    avatar: { public_id: "", url: "" },
-  });
-  sendToken(user, 200, res);
-  // const token = user.getJWTToken();
-  // res.status(201).json({
-  //   success: true,
-  //   token,
+  if (!req.body.avatar) {
+    return next(new ErrorHandler("Please upload an avatar", 400));
+  }
+
+  console.log(`req.body`, req.body);
+  const { avatar } = req.body;
+
+  if (!avatar || !avatar.startsWith("data:image")) {
+    return next(new ErrorHandler("Please upload a valid avatar", 400));
+  }
+  const base64Data = avatar.split(",")[1];
+
+  const base64Pattern = /^[A-Za-z0-9+/=]+$/;
+  if (!base64Pattern.test(base64Data)) {
+    return next(new ErrorHandler("Base64 data is not valid", 400));
+  }
+
+  if (!base64Data) {
+    return next(new ErrorHandler("Invalid Base64 data", 400));
+  }
+  // // Extract Base64 content from the avatar string
+  // let base64Data;
+  // if (req.body.avatar.startsWith("data:image")) {
+  //   base64Data = req.body.avatar.split(",")[1];
+  // } else {
+  //   base64Data = req.body.avatar;
+  // }
+
+  // Upload to Cloudinary
+  try {
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(
+      `data:image/png;base64,${base64Data}`,
+      {
+        folder: "avatars",
+        width: 150,
+        crop: "scale",
+      }
+    );
+
+    const { name, email, password } = req.body;
+
+    const user = await User.create({
+      name,
+      email,
+      password,
+      avatar: {
+        public_id: result.public_id,
+        url: result.secure_url,
+      },
+    });
+
+    sendToken(user, 200, res);
+  } catch (error) {
+    console.error("Error uploading to Cloudinary:", error);
+    next(new ErrorHandler("Error uploading avatar", 500));
+  }
+  // const result = await cloudinary.uploader.upload(
+  //   `data:image/jpeg;base64,${base64Data}`,
+  //   {
+  //     folder: "avatars",
+  //     width: 150,
+  //     crop: "scale",
+  //   }
+  // );
+
+  // const { name, email, password } = req.body;
+
+  // const user = await User.create({
+  //   name,
+  //   email,
+  //   password,
+  //   avatar: {
+  //     public_id: result.public_id,
+  //     url: result.secure_url,
+  //   },
   // });
+
+  // sendToken(user, 200, res);
 });
+
+// my first register function
+// exports.registerUser = catchAsyncError(async (req, res, next) => {
+//   console.log(`req.body`, req.body);
+//   console.log(`req.body.avatar`, req.body.avatar);
+//   console.log(`req.body.avatar.url`, req.body.avatar.url);
+//   console.log(`req.files`, req.files);
+//   // console.log(`req.files.avatar`, req.files.avatar);
+//   // const file = req.files.avatar;
+
+//   if (!req.body.avatar || !req.body.avatar.url) {
+//     return next(new ErrorHandler("Please upload an avatar", 400));
+//   }
+//   // let avatar = req.body.avatar;
+//   // if (avatar.startsWith("data:image")) {
+//   //   const base64Data = avatar.split(",")[1]; // Extract Base64 data
+
+//   // let base64Data;
+//   // if (req.body.avatar.startsWith("data:image")) {
+//   //   base64Data = req.body.avatar.split(",")[1];
+//   // } else {
+//   //   base64Data = req.body.avatar;
+//   // }
+
+//   const result = await cloudinary.uploader.upload(req.body.avatar.url, {
+//     // const result = await cloudinary.uploader.upload(
+//     //   `data:image/jpeg;base64,${base64Data}`,
+//     //   {
+//     // const result = await cloudinary.uploader.upload(
+//     //   `data:image/jpeg;base64,${base64Data}`,
+//     //   {
+//     folder: "avatars",
+//     width: 150,
+//     crop: "scale",
+//     // transformations: [{ width: 150, crop: "scale" }],
+//   });
+//   const { name, email, password, avatar } = req.body; // pulling the name, email and password from the req.body
+
+//   const user = await User.create({
+//     name,
+//     email,
+//     password,
+//     avatar: {
+//       public_id: result.public_id,
+//       url: result.secure_url,
+//     },
+//   });
+//   console.log(req.body.avatar);
+//   sendToken(user, 200, res);
+//   // const token = user.getJWTToken();
+//   // res.status(201).json({
+//   //   success: true,
+//   //   token,
+//   // });
+
+//   // res.status(200).json({
+//   //   success: true,
+//   //   message: "User registered successfully",
+//   //   avatar: {
+//   //     public_id: result.public_id,
+//   //     url: result.secure_url,
+//   //   },
+//   // });
+// });
 
 // login user => /api/v1/login
 
