@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     if (error) {
-      alert.error(`${error} \n Check your credentials`);
+      alert.error(`${error}, Check your credentials`);
       dispatch(clearErrors());
     }
   }, [dispatch, isAuthenticated, alert, error, navigate]);

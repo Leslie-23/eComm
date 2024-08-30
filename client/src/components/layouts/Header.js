@@ -111,7 +111,9 @@ const Header = () => {
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
 
-  const { user, loading } = useSelector((state) => state.auth);
+  const { user, loading, isAuthenticated } = useSelector((state) => state.auth);
+
+  console.log(`user: ${user}`);
 
   // Updated searchHandler function
   const searchHandler = (e) => {
@@ -202,7 +204,7 @@ const Header = () => {
                     </Link>
                   </>
                 ) : (
-                  <Link to="dashboard" className="dropdown-item">
+                  <Link to="/dashboard" className="dropdown-item">
                     Dashboard
                   </Link>
                 )}
@@ -213,7 +215,7 @@ const Header = () => {
               </div>
             </div>
           ) : (
-            !loading && (
+            !isAuthenticated && (
               <Link to="/login" className="btn ml-4" id="login_btn">
                 Login
               </Link>
@@ -233,7 +235,7 @@ const Header = () => {
           render={{ history }}
           Component={<Search history={history} />}
         /> */}
-        <Route path="/search/:keyword" element={<Search history={history} />} />
+        {/* <Route path="/search/:keyword" element={<Search history={history} />} /> */}
         {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
     </>

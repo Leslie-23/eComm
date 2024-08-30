@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link , useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 
@@ -8,12 +8,16 @@ import MetaData from "../layouts/metadata";
 
 import { login, clearErrors } from "../../actions/userAction";
 
-const Login = ({ history }) => {
+const Login = () => {
   const alert = useAlert();
+
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.auth
   );
@@ -22,18 +26,18 @@ const Login = ({ history }) => {
       alert.success("Logged in successfully");
       // history.push("/");
       // windows.location.reload("/");
-      navigate('/')
+      navigate("/");
     }
 
     if (error) {
-      alert.error(`${error} Wrong email or Password`);
+      alert.error(`${error}`);
       dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, alert,history, error, loading]);
+  }, [dispatch, isAuthenticated, alert, error, loading]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-   
-    dispatch(login(email,password));
+    dispatch(login(email, password));
   };
 
   return (

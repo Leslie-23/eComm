@@ -17,25 +17,30 @@ const API_URL = `http://localhost:4000`;
 // Login user
 export const login = (email, password) => async (dispatch) => {
   try {
+    console.log(`Dispatching LOGIN_REQUEST`);
     dispatch({ type: LOGIN_REQUEST });
 
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     };
 
     const { data } = await axios.post(
-      `${API_URL}/api/v1/login`,
+      // `${API_URL}/api/v1/login`,
+      `http://localhost:4000/api/v1/login`,
       { email, password },
       config
     );
 
+    console.log(`Dispatching LOGIN_SUCCESS`);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: data.user,
     });
   } catch (error) {
+    console.log(`Dispatching LOGIN_FAILED`);
     dispatch({
       type: LOGIN_FAILED,
       payload:
@@ -82,9 +87,11 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
+    const token = localStorage.getItem("token");
+
     const config = {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
 

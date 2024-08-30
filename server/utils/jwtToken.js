@@ -13,6 +13,7 @@ const sendToken = (user, statusCode, res) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRATION_TIME * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    sameSite: 'None', // Ensures the cookie is sent in cross-origin requests
   };
   res.status(statusCode).cookie("token", token, options).json({
     success: true,

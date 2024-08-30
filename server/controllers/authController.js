@@ -177,6 +177,7 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   if (!user || !(await user.matchPassword(password))) {
     return next(new ErrorHandler("Invalid email or password", 401));
   }
+  console.log(`Awaiting response from server`);
   sendToken(user, 200, res);
 
   //  create and send JWT token

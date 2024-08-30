@@ -11,11 +11,21 @@ dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: "*",
+    origin: ["http://localhost:3000", "http://localhost:4000"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
-    allowedHeaders: ["Content-Type", "application/json"],
-    exposedHeaders: ["Content-Type", "application/json"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "application/json",
+      "multipart/form-data",
+    ],
+    exposedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "application/json",
+      "multipart/form-data",
+    ],
   })
 );
 
@@ -31,6 +41,15 @@ app.use(
     limits: { fileSize: 50 * 1024 * 1024 }, //50MB lmit
   })
 );
+
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    return res.status(200).json({});
+  }
+  next();
+});
 
 const products = require("./routes/products.js");
 const auth = require("./routes/auth.js");
